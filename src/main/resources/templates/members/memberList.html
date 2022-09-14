@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>회원목록조회</title>
+</head>
+<body>
+<h2>회원 전체 목록 조회</h2>
+<hr>
+<table>
+  <tr>
+    <td>아이디</td>
+    <td>이름</td>
+    <td>도시</td>
+    <td>주소</td>
+    <td>우편번호</td>
+  </tr>
+  <tr th:each="member:${members}">
+    <!--<td> <a href="/members/update"><span th:text="${member.idid}">회원아이디</span></a> </td> -->
+    <td th:text="${member.idid}"></td>
+    <td th:text="${member.name}"></td>
+    <td th:text="${member.address?.city}"></td>
+    <td th:text="${member.address?.street}"></td>
+    <td th:text="${member.address?.zipcode}"></td>
+    <td><a href="#" th:href="@{/members/{id}/update (id=${member.id})}" role="button">수정</a></td>
+    <td><a href="#" th:href="@{/members/{id}/delete (id=${member.id})}" role="button">삭제</a></td>
+  </tr>
+</table>
+
+</body>
+</html>

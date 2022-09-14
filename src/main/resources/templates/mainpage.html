@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>jpaProject</title>
+</head>
+<body>
+<!-- 삭제해야할 코드 -->
+<a a th:href="@{/members/loginForm}">로그인</a>
+<!-- 삭제해야할 코드 -->
+<table>
+  <tr>
+      <td>회원관리</td>
+      <td>질문관리</td>
+  </tr>
+    <tr>
+        <td><a href="/members">회원목록</a></td>
+        <td><a href="/questions/new">질문등록</a></td>
+    </tr>
+    <tr>
+        <td><a th:href="@{/members/{id}/update (id=${session.id})}">내정보보기</a></td>
+        <td><a th:href="@{/questions/list}">질문목록보기</a></td>
+    </tr>
+    <tr>
+        <td><a th:href="@{/members/{id}/info (id=${session.id})}">마이페이지</a></td>
+    </tr>
+</table>
+</body>
+</html>

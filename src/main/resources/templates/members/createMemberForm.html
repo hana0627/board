@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>회원가입하기</title>
+</head>
+<body>
+<h2>회원가입화면</h2>
+<hr>
+
+<form action th:object="${memberForm}" method="post">
+<table>
+    <tr>
+        <td>아이디 입력</td>
+        <td><input type="text" th:field="*{idid}" required></td>
+    </tr>
+    <tr>
+        <td>이름 입력</td>
+        <td><input type="text" th:field="*{name}" required></td>
+    </tr>
+    <tr>
+        <td>비밀번호 입력</td>
+        <td><input type="password" th:field="*{password}" required></td>
+    </tr>
+    <tr>
+        <td>비밀번호 확인</td>
+        <td><input type="password" th:field="*{password2}" required></td>
+    </tr>
+    <tr>
+        <td>도시 입력</td>
+        <td><input type="text" th:field="*{city}"></td>
+    </tr>
+    <tr>
+        <td>거리 입력</td>
+        <td><input type="text" th:field="*{street}"></td>
+    </tr>
+    <tr>
+        <td>우편번호 입력</td>
+        <td><input type="text" th:field="*{zipcode}"></td>
+    </tr>
+
+</table>
+    <button type="submit">회원가입</button>
+</form>
+</body>
+</html>

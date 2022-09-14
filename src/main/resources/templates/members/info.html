@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>마이페이지</title>
+</head>
+<body>
+<h2>마이페이지</h2>
+<hr>
+<br>
+<table>
+  <tr>
+    <td>아이디</td>
+    <td>이름</td>
+    <td>도시</td>
+    <td>주소</td>
+    <td>우편번호</td>
+  </tr>
+  <tr>
+    <td th:text="${member.idid}"></td>
+    <td th:text="${member.name}"></td>
+    <!-- value값 안넘어옴 -->
+    <td><input type="text" th:value="${member.address?.city}"></td>
+    <td><input type="text" th:value="${member.address?.street}"></td>
+    <td><input type="text" th:value="${member.address?.zipcode}"></td>
+  </tr>
+</table>
+<hr>
+<a href="#" th:href="@{/questions/{id}/list (id=${member.id})}" role="button">내질문보기</a></br>
+<a href="#" th:href="@{/answers/{id}/list (id=${member.id})}" role="button">내답변보기</a></br>
+</body>
+</html>

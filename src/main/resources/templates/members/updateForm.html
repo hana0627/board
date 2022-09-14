@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>회원정보수정</title>
+</head>
+<body>
+<h2>회원정보수정</h2>
+<hr>
+<form th:object="${memberForm}" th:action ="@{/members/{id}/update (id=${member.id})}" method="post">
+<table>
+  <tr>
+    <td>아이디</td>
+    <td>이름</td>
+    <td>도시</td>
+    <td>주소</td>
+    <td>우편번호</td>
+    <td>유저구분</td>
+  </tr>
+  <tr>
+    <td th:text="${member.idid}" th:field="*{idid}"></td>
+    <td th:text="${member.name}" th:field="*{name}"></td>
+    <!-- value값 안넘어옴 -->
+    <td><input type="text" th:field="*{city}" th:value="${member.address?.city}"></td>
+    <td><input type="text" th:field="*{street}" th:value="${member.address?.street}"></td>
+    <td><input type="text" th:field="*{zipcode}" th:value="${member.address?.zipcode}"></td>
+    <td><select th:field="*{grade}">
+      <option th:each="grade : ${T(jpaproject.board.domain.Grade).values()}"
+              th:value="${grade}"
+              th:text="${grade}">option
+      </option>
+    </select></td>
+
+  </tr>
+</table>
+  <input type="hidden" th:value="${member.id}">
+  <button type="submit">수정</button><br>
+</form>
+</body>
+</html>

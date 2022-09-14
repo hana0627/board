@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>jpaProject</title>
+</head>
+<body>
+<form th:action="@{/members/login}" method="post">
+아아디<input type="text" name="idid">
+비밀번호<input type="password" name="password">
+<button type="submit">로그인</button>
+<a href="/members/new">회원가입</a>
+</form>
+</body>
+</html>

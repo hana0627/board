@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>질문목록조회</title>
+</head>
+<body>
+<h2>질문 목록 조회</h2>
+<hr>
+<table>
+  <tr>
+    <td>제목</td>
+    <td>작성자</td>
+    <td>등록일</td>
+    <td>조회수</td>
+  </tr>
+  <tr th:each="question:${questions}">
+    <td><a href="#" th:href="@{/questions/{id}/view (id=${question.id})}"><span th:text="${question.title}"/></a></td>
+    <td>getName</td>
+    <td th:text="${question.date}"></td>
+    <td th:text="${question.hit}"></td>
+  </tr>
+</table>
+<!-- url: questions/list  -->
+<a th:href = "@{/questions/list(page = ${previous})}"><button>이전으로</button></a>
+<a th:href = "@{/questions/list(page = ${next})}"><button>다음으로</button></a>
+<!--
+    <td><a href="#" th:href="@{/members/{id}/update (id=${member.id})}" role="button">수정</a></td>-->
+
+
+</body>
+</html>
+
+
+<!--
+페이징 관련 적용해본 코드
+
+<a th:href="@{/questions/list(page = ${page - 1})}">
+<a th:href="${list.last}?${previous}"></a>
+-->

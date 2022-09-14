@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>질문목록조회</title>
+</head>
+<body>
+<h2>질문 목록 조회</h2>
+<hr>
+
+<table>
+  <tr>
+    <td>제목</td>
+    <td>작성자</td>
+    <td>등록일</td>
+    <td>조회수</td>
+  </tr>
+  <tr th:each="question:${questions}">
+    <td><a href="#" th:href="@{/questions/{id}/view (id=${question.id})}"><span th:text="${question.title}"/></a></td>
+    <td>getName</td>
+    <td th:text="${question.date}"></td>
+    <td th:text="${question.hit}"></td>
+  </tr>
+</table>
+
+</body>
+</html>

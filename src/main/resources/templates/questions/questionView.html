@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>질문내용보기</title>
+</head>
+<body>
+<h2>질문 내용 보기</h2>
+<hr>
+<br>
+
+
+
+
+<form th:action ="@{/answers/create}">
+  제목 : <span th:text="${question.title}"></span>&nbsp;&nbsp;처리상태 : <span th:text="${question.qstatus}"></span><br>
+  내용 : <span th:text="${question.content}"></span><br>
+
+  <input type="hidden" th:value="${question.id}" name="questionId">
+  <br>
+  <button type="submit">답글달기</button><br>
+
+<!--  <span th:if="${question.qstatus == 'FINISH'}"> -->
+  <span th:if="${#strings.equals(question.qstatus, 'FINISH')}">
+    <a href="#" th:href="@{/answers/{id}/view (id=${question.id})}" role="button">답글보기</a>
+  </span>
+
+
+
+<!--
+<form th:object="${questionForm}" th:action ="@{/answers/create}">
+제목 : <span th:text="${question.title}" th:field="*{title}"></span>&nbsp;&nbsp;처리상태 : <span th:text="${question.qstatus}" th:field="*{qstatus}"></span><br>
+내용 : <span th:text="${question.content}" th:field="*{content}"></span><br>
+
+  <<input type="hidden" th:field="*{id}" th:value="${question.id}">
+  <br>
+  <br>
+  <br>
+  <span th:text ="${session.id}"></span>
+  <br>
+  <br>
+  <br>
+  <span th:text ="${question.id}"></span>
+  <br>
+  <br>
+  <button type="submit">답글달기</button>
+  -->
+
+
+
+</form>
+
+</body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>답변목록보기</title>
+</head>
+<body>
+<h2>답변목록</h2>
+<hr>
+
+<br>
+<br>
+
+<div th:each="answer:${answers}">
+  제목 : <span th:text = "${answer.title}"></span> &nbsp; 작성자 : <span text = "getName"></span>
+  <hr>
+  내용<br><br>
+  <span th:text = "${answer.content}"></span>
+  <hr>
+  <br><br>
+</div>
+
+</body>
+</html>
